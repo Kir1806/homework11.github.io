@@ -18,8 +18,8 @@ module: {
             },
             {
                 test: /\.css$/, // применять это правило только к CSS-файлам
-                use: [MiniCssExtractPlugin.loader, 'css-loader'] // к этим файлам нужно применить пакеты, которые мы уже установили
-            }
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'] // к этим файлам нужно применить пакеты, которые мы уже установили
+            }            
         ]    
     },
     plugins: [ 
@@ -31,8 +31,14 @@ module: {
             template: './src/index.html', // откуда брать образец для сравнения с текущим видом проекта
             filename: 'index.html' // имя выходного файла, то есть того, что окажется в папке dist после сборки
           }),
-          new MiniCssExtractPlugin({
-            filename: 'style.[contenthash].css'})
+        new MiniCssExtractPlugin({
+            filename: 'style.[contenthash].css'}),
+            require('autoprefixer'),
+            require('cssnano')({ // подключили cssnano
+                preset: 'default', // выбрали настройки по умолчанию
+        }),
+        new WebpackMd5Hash()
+
         ]
     
 };
