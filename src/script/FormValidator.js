@@ -1,4 +1,4 @@
-class FormValidator {
+export default class FormValidator {
     constructor(form, formUser, popupUserSaveButton) {// nameEvent, form
         this.form = form;
         this.formUser = formUser;

@@ -1,4 +1,4 @@
-class UserInfo {
+export default class UserInfo {
     constructor(userName, userJob, userPhoto, newUserName, newAboutUser, api, popUp) {
         this.api = api;
         this.popUp = popUp;
