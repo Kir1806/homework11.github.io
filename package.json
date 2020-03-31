@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Kir1806/homework11.github.io/issues"
   },
-  "homepage": "https://github.com/Kir1806/homework11.github.io#readme"
+  "homepage": "https://github.com/Kir1806/homework11.github.io#readme",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
 }
