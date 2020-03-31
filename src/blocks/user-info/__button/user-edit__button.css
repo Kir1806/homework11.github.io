@@ -1,0 +1,23 @@
+.user-edit__button {
+    background-color: transparent;
+    border: 1px solid white;
+    /*position: absolute;*/
+    margin-top: 24px;
+    margin-bottom: 0px;
+    width: 38px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    /*display: flex;*/
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.user-edit__button:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: #000;
+}

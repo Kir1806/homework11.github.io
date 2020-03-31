@@ -1,0 +1,17 @@
+.popup-image__item {    
+    width: 80vw;
+    height: 80vh;      
+    position: relative;
+    box-sizing: border-box;
+    padding: 34px 36px;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /*border: 1px solid green;   */  
+}
+
+@media screen and (max-width: 540px) {
+    .popup-image__item {
+      width: calc(100% - 60px);
+    }
+}
