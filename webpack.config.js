@@ -19,7 +19,18 @@ module: {
             {
                 test: /\.css$/, // применять это правило только к CSS-файлам
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'] // к этим файлам нужно применить пакеты, которые мы уже установили
-            }            
+            },
+// пример настройки плагина image-webpack-loader
+            {
+                test: /\.(png|jpg|gif|ico|svg)$/,
+                use: [
+                    'file-loader?name=../images/[name].[ext]', // указали папку, куда складывать изображения
+                    {
+                    loader: 'image-webpack-loader',
+                    options: {}
+                    },
+                    ]
+            }           
         ]    
     },
     plugins: [ 
@@ -37,7 +48,10 @@ module: {
             require('cssnano')({ // подключили cssnano
                 preset: 'default', // выбрали настройки по умолчанию
         }),
-        new WebpackMd5Hash()
+        new WebpackMd5Hash(),
+        new webpack.DefinePlugin({
+            'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        })
 
         ]
     
