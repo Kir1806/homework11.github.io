@@ -49,7 +49,7 @@ module: {
                     preset: ['default'],
             },
             canPrint: true
-    })
+    }),
         new HtmlWebpackPlugin({
             // Означает, что:
             inject: false, // стили НЕ нужно прописывать внутри тегов
