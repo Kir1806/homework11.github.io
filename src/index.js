@@ -1,3 +1,11 @@
+import './pages/index.css';
+import Api from './script/Api';
+import Card from './script/Card';
+import CardList from './script/CardList';
+import FormValidator from './script/FormValidator';
+import Popup from './script/Popup';
+import UserInfo from './script/UserInfo';
+
 (function (){
 const root = document.querySelector('.root');
 const cardSection = root.querySelector('.places-list.root__section');
