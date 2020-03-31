@@ -8,7 +8,8 @@
   <meta name="keywords" content="html, css, js">
   <meta name="author" content="Кирилл Шлёнкин">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
+  <!--<link rel="stylesheet" href="./pages/index.css">-->
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
   <link rel="apple-touch-icon" sizes="180x180" href="<% ./images/apple-touch-icon.png %>">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
@@ -85,12 +86,13 @@
        </div>
     </div>
   </div>
-  <script src="./script/Api.js"></script>
+  <!--<script src="./script/Api.js"></script>
   <script src="./script/FormValidator.js"></script>
   <script src="./script/UserInfo.js"></script>
   <script src="./script/Card.js"></script>
   <script src="./script/CardList.js"></script>
   <script src="./script/Popup.js"></script>
-  <script src="./index.js"></script>
+  <script src="./index.js"></script>-->
+  <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
 </html>
