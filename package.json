@@ -1,0 +1,19 @@
+{
+  "name": "homework11",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kir1806/homework11.github.io.git"
+  },
+  "author": "Kirill Shlyonkin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kir1806/homework11.github.io/issues"
+  },
+  "homepage": "https://github.com/Kir1806/homework11.github.io#readme"
+}
