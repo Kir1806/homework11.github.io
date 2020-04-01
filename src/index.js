@@ -1,4 +1,4 @@
-import './pages/index.css';
+import './style.css';
 import Api from './script/Api';
 import Card from './script/Card';
 import CardList from './script/CardList';
