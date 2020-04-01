@@ -10,7 +10,7 @@
   <title>Mesto</title>
   <!--<link rel="stylesheet" href="./pages/index.css">-->
   <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
-  <link rel="apple-touch-icon" sizes="180x180" href="<% ./images/apple-touch-icon.png %>">
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png>">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
@@ -23,7 +23,7 @@
 <body>
   <div class="root">
     <header class="header root__section">
-      <img src="./images/logo.svg" alt="mesto logo" class="logo">
+      <img src="<%required('./images/logo.svg').default%>" alt="mesto logo" class="logo">
     </header>
     <div class="profile root__section">
       <div class="user-info">

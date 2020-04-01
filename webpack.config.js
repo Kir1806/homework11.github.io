@@ -42,6 +42,7 @@ module: {
     },
     plugins: [ 
         new MiniCssExtractPlugin({filename: 'index.css'}),
+        
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
             cssProcessor: require('cssnano'),
@@ -57,12 +58,6 @@ module: {
             template: './src/index.html', // откуда брать образец для сравнения с текущим видом проекта
             filename: 'index.html' // имя выходного файла, то есть того, что окажется в папке dist после сборки
           }),
-        new MiniCssExtractPlugin({
-            filename: 'style.[contenthash].css'}),
-            require('autoprefixer'),
-            require('cssnano')({ // подключили cssnano
-                preset: 'default', // выбрали настройки по умолчанию
-        }),
         new WebpackMd5Hash(),
         new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
