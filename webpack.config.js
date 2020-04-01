@@ -5,6 +5,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development'; // создаем переменную для development-сборки
+const {CleanWebpackPlugin} = require('clean-webpack-plugin'); //очистка dist
+const filename = ext => isDev ? `[name].${ext}` : `[name].[chunkhash].${ext}`;
+
 
 module.exports = {
     entry: { main: './src/index.js' },
@@ -44,7 +47,7 @@ module: {
         ]    
     },
     plugins: [ 
-        new MiniCssExtractPlugin({filename: 'index.css'}),
+        new MiniCssExtractPlugin({filename: filename('css')}),
         
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
@@ -57,11 +60,12 @@ module: {
         new HtmlWebpackPlugin({
             // Означает, что:
             inject: false, // стили НЕ нужно прописывать внутри тегов
-            hash: false, // для страницы  не нужно считать хеш
-            template: './src/index.html', // откуда брать образец для сравнения с текущим видом проекта
+            //hash: false, // для страницы  не нужно считать хеш
+            //template: './src/index.html', // откуда брать образец для сравнения с текущим видом проекта
             filename: 'index.html' // имя выходного файла, то есть того, что окажется в папке dist после сборки
           }),
         new WebpackMd5Hash(),
+        new CleanWebpackPlugin(),
         new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         })
