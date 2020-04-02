@@ -1,11 +1,11 @@
-const path = require('path');
 const webpack = require('webpack');
+const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // Подключили к проекту плагин
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development'; // создаем переменную для development-сборки
-const isProd =!isDev;
+const isProd = !isDev;
 const {CleanWebpackPlugin} = require('clean-webpack-plugin'); //очистка dist
 const filename = ext => isDev ? `[name].${ext}` : `[name].[chunkhash].${ext}`;
 //Оптимизация лоадеров
@@ -31,7 +31,7 @@ const cssLoaders = extra => {
 
 module.exports = {
     devtool: isDev ? 'source-map' : '',
-    entry: { main: './src/index.js' },
+    entry: {main: './src/index.js'},
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: filename('js')//'[name].[chunkhash].js' // прописываем хеш в имени файла
@@ -57,7 +57,7 @@ module: {
             use: cssLoaders('sass-loader')
         },
         {
-            test: /\.(png|jpg|gif|ico|svg)$/,
+            test: /\.(png|jpe?g|gif|ico|svg)$/,
             use: [
                     'file-loader?name=./images/[name].[ext]', // указали папку, куда складывать изображения
                     {
@@ -93,7 +93,7 @@ module: {
         new HtmlWebpackPlugin({
             // Означает, что:
             inject: false, // стили НЕ нужно прописывать внутри тегов
-            hash: true, // для страницы  нужно считать хеш
+            // hash: true,  для страницы  нужно считать хеш
             template: './src/index.html', // откуда брать образец для сравнения с текущим видом проекта
             filename: 'index.html', // имя выходного файла, то есть того, что окажется в папке dist после сборки
             // Оптимизация HTML
@@ -106,7 +106,6 @@ module: {
         new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         })
-
         ]
     
 };
