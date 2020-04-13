@@ -5,9 +5,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 // переменная окружения
 const isDev = process.env.NODE_ENV === 'development';
+const serverUrl = process.env.NODE_ENV === 'development' ? 'http://praktikum.tk' : 'https://praktikum.tk';
 
 module.exports = {
   entry: {main: './src/index.js'},
@@ -23,6 +25,7 @@ module.exports = {
         exclude: /node_modules/ // исключает папку node_modules
       },
       {
+        
         test: /\.css$/i, // применять это правило только к CSS-файлам
         use: [(isDev ? 'style-loader' : MiniCssExtractPlugin.loader), 'css-loader', 'postcss-loader'] 
       },
@@ -55,6 +58,10 @@ module.exports = {
       template: './src/index.html', // откуда брать образец для сравнения с текущим видом проекта
       filename: 'index.html' // имя выходного файла, то есть того, что окажется в папке dist после сборки
     }),
+    new CopyPlugin([
+      { from:  './src/images', to: `images` },
+      //{ from: 'other', to: 'public' },
+    ]),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({'NODE_ENV': JSON.stringify(process.env.NODE_ENV)})
   ]
