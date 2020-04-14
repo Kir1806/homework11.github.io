@@ -9,7 +9,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 // переменная окружения
 const isDev = process.env.NODE_ENV === 'development';
-const serverUrl = process.env.NODE_ENV === 'development' ? 'http://praktikum.tk' : 'https://praktikum.tk';
+//const serverUrl = process.env.NODE_ENV === 'development' ? 'http://praktikum.tk' : 'https://praktikum.tk';
 
 module.exports = {
   entry: {main: './src/index.js'},
