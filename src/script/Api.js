@@ -1,13 +1,14 @@
 export default class Api {
     constructor(options) {
-        this.options = options;
+      this.baseUrl = options.baseUrl;
+      this.headers = options.headers;
 
     }
 
     getInitialCards() {
-        return fetch('https://praktikum.tk/cohort8/cards', {
+        return fetch(`${this.baseUrl}/cards`, {
             headers: {
-                authorization: '63c8c2ff-8bbb-47e7-921b-c11d100153b9'
+                authorization: this.headers.authorization //'63c8c2ff-8bbb-47e7-921b-c11d100153b9'
                 }
                 })
                 .then(res => {
@@ -25,9 +26,9 @@ export default class Api {
     }
 
     getUserInfo(){// запрос информации с сервера
-        return fetch('https://praktikum.tk/cohort8/users/me', {
+        return fetch(`${this.baseUrl}/users/me`, {
             headers: {
-              authorization: '63c8c2ff-8bbb-47e7-921b-c11d100153b9'
+              authorization: this.headers.authorization //'63c8c2ff-8bbb-47e7-921b-c11d100153b9'
             }
           })
             .then(res => {
@@ -43,11 +44,11 @@ export default class Api {
     }
 
     postUserInfo(userName, userAbout){ // передача на сервер информации name, job
-      return fetch('https://praktikum.tk/cohort8/users/me', {
+      return fetch(`${this.baseUrl}/users/me`, {
         method: 'PATCH',
         headers: {
-          authorization: '63c8c2ff-8bbb-47e7-921b-c11d100153b9',
-          'Content-Type': 'application/json'
+          authorization: this.headers.authorization,
+          'Content-Type': this.headers['Content-Type']
           },
           body: JSON.stringify({name: userName, about: userAbout})
           })
