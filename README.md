@@ -1,7 +1,7 @@
 # Mesto
 ## Проектная работа 11
 ### Яндекс практикум
-#### https://homework11.github.io
+#### https://kir1806.github.io/homework11.github.io/
 #### актуальная версия v0.0.2
 #### опубликованная версия v0.0.2
 
