@@ -43,7 +43,7 @@ const formUser = document.forms.edituser;
 const  initialCards = [];
 
 const api = new Api({
-  baseUrl: process.env.NODE_ENV==='development' ? 'http://praktikum.tk/cohort8' : 'https://praktikum.tk/cohort8',
+  baseUrl: process.env.NODE_ENV === 'development' ? 'http://praktikum.tk/cohort8' : 'https://praktikum.tk/cohort8',
     headers: {
       authorization: '63c8c2ff-8bbb-47e7-921b-c11d100153b9',
       'Content-Type': 'application/json'
