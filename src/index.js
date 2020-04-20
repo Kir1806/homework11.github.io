@@ -35,7 +35,7 @@ const link = document.querySelector('.popup__input.popup__input_type_link-url');
 
 const form = document.forms.new;
 const formUser = document.forms.edituser;
-
+console.log(process.env.NODE_ENV);
 // 63c8c2ff-8bbb-47e7-921b-c11d100153b9
 // cohort8
 // GET https://praktikum.tk/cohortId/users/me
